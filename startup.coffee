@@ -11,4 +11,5 @@
 #   mnpk <mnncat@gmail.com>
 #
 module.exports = (robot) ->
-  robot.messageRoom 'dev7', 'hubot, 기동됨' 
+  say_hello = -> robot.messageRoom 'Shell', 'hubot, 기동됨'
+  setTimeout say_hello, 5000
