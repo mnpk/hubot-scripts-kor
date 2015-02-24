@@ -3,7 +3,7 @@
 #
 # Commands:
 #   hubot 핑 - 퐁을 응답함
-#   시간 - 현재 시간을 알려줌
+#   hubot 시간 - 현재 시간을 알려줌
 #
 # Author:
 #   mnpk <mnncat@gmail.com>
@@ -15,5 +15,5 @@ module.exports = (robot) ->
   robot.respond /살아있니/, (msg) ->
     msg.send "hubot 살아있음"
 
-  robot.hear /시간|몇시야/, (msg) ->
+  robot.respond /시간|몇시야/, (msg) ->
     msg.send "현재 시간: #{new Date()}"
