@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot <날짜형식>에 <action>(가라고|하라고|라고) 알려줘
+#   hubot <날짜형식>에 <action>(가라고|하라고|이라고|라고) 알려줘
 #
 # Author:
 #   mnpk<mnncat@gmail.com>
@@ -44,7 +44,7 @@ class Reminders
       if @cache.length > 0
         trigger = =>
           reminder = @removeFirst()
-          @robot.send reminder.for, reminder.for.name + '님, ' + reminder.action + ' 하실 시간이 되었습니다.'
+          @robot.send reminder.for, reminder.for.name + '님, ' + reminder.action + ' 시간이 되었습니다.'
           @queue()
         @current_timeout = setTimeout trigger, @cache[0].due - now
 
@@ -81,6 +81,16 @@ class Reminder
     dueDate = new Date @due
     dueDate.toLocaleString()
 
+
+josa = (x) ->
+  if x == "가라고"
+    return " 가실" 
+  else if x == "하라고"
+    return " 하실"
+  else
+    return ""
+
+
 module.exports = (robot) ->
 
   reminders = new Reminders robot
@@ -95,7 +105,7 @@ module.exports = (robot) ->
     if parsedDate.isValid() and parsedDate.isFuture()
       # We got a valid date, so let's pass it on in the format that we normally expect
       strTime = (parsedDate.secondsFromNow() + 1) + ' seconds'
-      reminder = new Reminder msg.message.user, strTime, action
+      reminder = new Reminder msg.message.user, strTime, "#{action}#{josa msg.match[8]}"
       reminders.add reminder
       msg.send '네, ' + time + ', ' + action + ', 기억하겠습니다.'
     else
