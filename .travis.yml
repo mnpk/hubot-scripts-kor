@@ -1,4 +1,6 @@
-languge: node_js
+language: node_js
 node_js:
-  - '0.11'
-  - '0.10'
+  - "0.10"
+  - "0.12"
+sudo: false
+script: "npm test"
