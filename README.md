@@ -1,2 +1,2 @@
 # hubot-scrips-kor
-휴봇 스크립트
+한글 휴봇 스크립트
