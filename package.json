@@ -9,7 +9,7 @@
   "bin": {
   },
   "scripts": {
-     "test": "mocha --compilers coffee:coffee-script --timeout 100"
+     "test": "mocha --compilers coffee:coffee-script --timeout 100 --reporter spec"
   },
   "devDependencies": {
     "coffee-script": "~1.6.3",
