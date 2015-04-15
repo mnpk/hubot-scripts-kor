@@ -51,7 +51,6 @@ describe 'hubot', ->
 
     it '"주사위"는 1-6까지', (done)->
       adapter.on 'send', (env, str)->
-        console.log str[0]
         pattern = /mocha님이 주사위를 굴려 (\d)[이가] 나왔습니다. \(1 - 6\)/
         expect(str[0]).match(pattern)
         expect(str[0].match(pattern)[1]).to.be.within(1, 6)
