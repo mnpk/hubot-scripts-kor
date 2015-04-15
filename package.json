@@ -1,0 +1,38 @@
+{
+  "name": "hubot-scripts-kor",
+  "description": "한글 휴봇 스크립트",
+  "version": "0.1.0",
+  "main": "index.coffee",
+  "dependencies": {
+  },
+  "preferGlobal": "false",
+  "bin": {
+  },
+  "scripts": {
+     "test": "mocha --compilers coffee:coffee-script --timeout 100"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.3",
+    "chai": "~1.9.0",
+    "hubot-mock-adapter": "~1.0.0",
+    "mocha": "~1.17.1",
+    "hubot": "~2.7.2",
+    "sinon": "~1.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mnpk/hubot-scripts-kor"
+  },
+  "keywords": [
+    "hubot",
+    "korean",
+    "한글",
+    "devops"
+  ],
+  "author": "mnpk <mnncat@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mnpk/hubot-scripts-kor/issues"
+  },
+  "homepage": "https://github.com/mnpk/hubot-scripts-kor"
+}
