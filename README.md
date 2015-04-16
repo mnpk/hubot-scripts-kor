@@ -3,7 +3,7 @@
 한글 휴봇 스크립트 모음
 
 [![Travis](https://img.shields.io/travis/mnpk/hubot-scripts-kor.svg?style=flat-square)](https://travis-ci.org/mnpk/hubot-scripts-kor)
-[![Coveralls branch](https://img.shields.io/coveralls/jekyll/jekyll/master.svg?style=flat-square)](https://coveralls.io/r/mnpk/hubot-scripts-kor)
+[![Coveralls branch](https://img.shields.io/coveralls/mnpk/hubot-scripts-kor/master.svg?style=flat-square)](https://coveralls.io/r/mnpk/hubot-scripts-kor)
 [![npm](https://img.shields.io/npm/v/hubot-scripts-kor.svg?style=flat-square)](https://www.npmjs.com/package/hubot-scripts-kor)
 
 
