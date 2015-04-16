@@ -2,8 +2,9 @@
 
 한글 휴봇 스크립트 모음
 
-[![Travis](https://img.shields.io/travis/mnpk/hubot-scripts-kor.svg?style=flat-square)]()
-[![npm](https://img.shields.io/npm/v/hubot-scripts-kor.svg?style=flat-square)]()
+[![Travis](https://img.shields.io/travis/mnpk/hubot-scripts-kor.svg?style=flat-square)](https://travis-ci.org/mnpk/hubot-scripts-kor)
+[![Coverage Status](https://coveralls.io/repos/mnpk/hubot-scripts-kor/badge.svg?branch=master)](https://coveralls.io/r/mnpk/hubot-scripts-kor?branch=master)
+[![npm](https://img.shields.io/npm/v/hubot-scripts-kor.svg?style=flat-square)](https://www.npmjs.com/package/hubot-scripts-kor)
 
 
 ### 진단
