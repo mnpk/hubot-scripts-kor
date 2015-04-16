@@ -9,3 +9,5 @@ deploy:
   email: mnncat@gmail.com
   api_key:
     secure: nLVPy29tPrkZPw0MaHbpegJqaY9uiWSKLaNv/agSsxFTF5J6Sj1M239hOVMEL40l6Ew7FV6jQXrAvjNEUVfapmRM3br0Zg5YOsicZZ4l09dH/hrTd6C8JjtO30SZegV7M2/EhayRQhV4cnp+/7YmTbRETfcshhFDG0Jz47Ua7m8=
+after_success:
+  - npm run-script coveralls

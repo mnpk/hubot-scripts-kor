@@ -3,22 +3,9 @@
   "description": "한글 휴봇 스크립트",
   "version": "0.1.0",
   "main": "index.coffee",
-  "dependencies": {
-  },
-  "preferGlobal": "false",
-  "bin": {
-  },
-  "scripts": {
-     "test": "mocha --compilers coffee:coffee-script --timeout 100 --reporter spec"
-  },
-  "devDependencies": {
-    "coffee-script": "~1.6.3",
-    "chai": "~1.9.0",
-    "hubot-mock-adapter": "~1.0.0",
-    "mocha": "~1.17.1",
-    "hubot": "~2.7.2",
-    "sinon": "~1.9.0"
-  },
+  "author": "mnpk <mnncat@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/mnpk/hubot-scripts-kor",
   "repository": {
     "type": "git",
     "url": "git@github.com:mnpk/hubot-scripts-kor"
@@ -29,10 +16,34 @@
     "한글",
     "devops"
   ],
-  "author": "mnpk <mnncat@gmail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mnpk/hubot-scripts-kor/issues"
   },
-  "homepage": "https://github.com/mnpk/hubot-scripts-kor"
+  "dependencies": {},
+  "preferGlobal": "false",
+  "bin": {},
+  "devDependencies": {
+    "blanket": "alex-seville/blanket",
+    "chai": "^1.9.2",
+    "coffee-script": "^1.6.3",
+    "coveralls": "^2.11.2",
+    "hubot": "~2.7.2",
+    "hubot-mock-adapter": "^1.0.0",
+    "mocha": "^2.0.1",
+    "mocha-lcov-reporter": "0.0.1",
+    "require-dir": "^0.3.0",
+    "sinon": "~1.9.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test-html-cov": "mocha -r blanket -R html-cov",
+    "coveralls": "mocha -r blanket -R mocha-lcov-reporter | coveralls"
+  },
+  "config": {
+    "blanket": {
+      "loader": "./node-loaders/coffee-script",
+      "data-cover-never": "node_modules",
+      "data-cover-only": "src"
+    }
+  }
 }
