@@ -27,7 +27,7 @@ describe 'hubot', ->
       robot.loadFile hubotScripts, 'auth.coffee'
       # load files to test
       # require("../index") robot
-      robot.loadFile path.resolve('.', 'src'), 'diagnostics_kor.coffee'
+      robot.loadFile path.resolve('.', 'src'), 'diagnostics.coffee'
       robot.loadFile path.resolve('.', 'src'), 'dice.coffee'
       # create user
       user = robot.brain.userForId '1', {
