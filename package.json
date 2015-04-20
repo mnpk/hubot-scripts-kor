@@ -1,7 +1,7 @@
 {
   "name": "hubot-scripts-kor",
   "description": "한글 휴봇 스크립트",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "index.coffee",
   "author": "mnpk <mnncat@gmail.com>",
   "license": "MIT",
@@ -25,6 +25,7 @@
     "blanket": "alex-seville/blanket",
     "chai": "^1.9.2",
     "coffee-script": "^1.6.3",
+    "coffeelint": "^1.9.3",
     "coveralls": "^2.11.2",
     "hubot": "~2.7.2",
     "hubot-mock-adapter": "^1.0.0",
@@ -36,7 +37,8 @@
   "scripts": {
     "test": "mocha",
     "test-html-cov": "mocha -r blanket -R html-cov",
-    "coveralls": "mocha -r blanket -R mocha-lcov-reporter | coveralls"
+    "coveralls": "mocha -r blanket -R mocha-lcov-reporter | coveralls",
+    "lint": "coffeelint src"
   },
   "config": {
     "blanket": {
