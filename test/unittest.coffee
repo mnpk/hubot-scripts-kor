@@ -1,65 +1,47 @@
-path = require 'path'
-Robot = require("hubot/src/robot")
-TextMessage = require("hubot/src/message").TextMessage
-# Load assertion methods to this scope
-chai = require 'chai'
 blanket = require 'blanket'
-# nock = require 'nock'
-{ expect } = chai
-
+tbot = require 'tbot'
+path = require 'path'
 
 describe 'hubot', ->
-  robot = null
-  user = null
-  adapter = null
+  testbot = null
+ 
   before ->
     matchesBlanket = (path) -> path.match /node_modules\/blanket/
     runningTestCoverage = Object.keys(require.cache).filter(matchesBlanket).length > 0
     if runningTestCoverage
       require('require-dir')("#{__dirname}/../src", {recurse: true, duplicates: true})
 
+  # create
   beforeEach (done)->
-    robot = new Robot null, 'mock-adapter', yes, 'hubot'
-    robot.adapter.on 'connected', ->
-      # Project script
-      process.env.HUBOT_AUTH_ADMIN = "1"
-      hubotScripts = path.resolve 'node_modules', 'hubot', 'src', 'scripts'
-      robot.loadFile hubotScripts, 'auth.coffee'
-      # load files to test
-      # require("../index") robot
-      robot.loadFile path.resolve('.', 'src'), 'diagnostics.coffee'
-      robot.loadFile path.resolve('.', 'src'), 'dice.coffee'
-      # create user
-      user = robot.brain.userForId '1', {
-        name: 'mocha',
-        root: '#mocha'
-      }
-      adapter = robot.adapter
-      do done
-    do robot.run
+    testbot = new tbot done
+    testbot.load './src/diagnostics.coffee'
+    testbot.load './src/dice.coffee'
+    testbot.load './src/jinusean.coffee'
 
   afterEach ->
-    do robot.server.close
-    do robot.shutdown
+    do testbot.clear
+
 
   describe 'diagnostics', ->
-    it 'should send 퐁 on 핑', (done)->
-      adapter.on 'send', (env, str)->
-        expect(str[0]).to.equal '퐁'
-        do done
-      adapter.receive new TextMessage user, 'hubot 핑'
+    it 'should send 퐁', ->
+      testbot.send 'hubot 핑', (res)->
+        assert.equal res, '퐁'
 
   describe '주사위', ->
-    it 'should reply "왜죠?" on "주사위 0"', (done)->
-      adapter.on 'reply', (env, str)->
-        expect(str[0]).to.equal "왜죠?"
-        do done
-      adapter.receive new TextMessage user, "주사위 0"
+    it 'should reply "왜죠?" on "주사위 0"', ->
+      testbot.reply '주사위 0', (res)->
+        assert.equal res, '왜죠?'
 
-    it 'should send result withn 1 - 6 on "주사위"', (done)->
-      adapter.on 'send', (env, str)->
+    it 'should send result withn 1 - 6 on "주사위"', ->
+      testbot.send '주사위', (res)->
         pattern = /mocha님이 주사위를 굴려 (\d)[이가] 나왔습니다. \(1 - 6\)/
-        expect(str[0]).match(pattern)
-        expect(str[0].match(pattern)[1]).to.be.within(1, 6)
-        do done
-      adapter.receive new TextMessage user, "주사위"
+        assert res.match(pattern)
+        assert res.match(pattern)[1] > 1
+        assert res.match(pattern)[1] > 6
+
+  describe 'jinusean', ->
+    it 'should send 지누션밤', ->
+      testbot.send '오늘밤은무슨밤', (res)->
+        assert.equal res, '지누션밤~:sunglasses:'
+      testbot.send '오늘 밤은 무슨 밤?', (res)->
+        assert.equal res, '지누션밤~:sunglasses:'

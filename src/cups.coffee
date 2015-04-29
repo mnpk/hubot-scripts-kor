@@ -13,5 +13,5 @@ cups = [
 
 module.exports = (robot) ->
   robot.hear /쿱스/, (msg) ->
-      text = msg.random cups
-      msg.send msg.random cups
+    text = msg.random cups
+    msg.send msg.random cups
