@@ -46,6 +46,11 @@ hubot 안녕
 hubot 도움|도와줘
 ```
 
+#### jinusean.coffee
+```
+오늘 밤은 무슨 밤?
+```
+
 #### jjal.coffee
 ```
 좌절
