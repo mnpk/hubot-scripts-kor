@@ -10,6 +10,7 @@
 # Commands:
 #   좌절
 #   아아아아
+#   규석
 #
 # Author:
 #   mnpk <mnncat@gmail.com>
@@ -20,3 +21,6 @@ module.exports = (robot) ->
 
     robot.hear /아아아아아*/, (msg) ->
         msg.send "http://pds21.egloos.com/pds/201308/25/63/b0003363_52197d5c29f97.jpg"
+
+    robot.hear /규석/, (msg)->
+        msg.send "http://i.imgur.com/grYEapt.jpg"
